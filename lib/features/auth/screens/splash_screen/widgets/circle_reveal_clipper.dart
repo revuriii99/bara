@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CircleRevealClipper extends CustomClipper<Path> {
   final Offset center;
-  final double progress; // 0 - 1
+  final double progress; 
   final double maxRadius;
 
   CircleRevealClipper({

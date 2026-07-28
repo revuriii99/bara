@@ -296,7 +296,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   'assets/images/bara_naik_pesawat.png',
                   width: 340,
                   fit: BoxFit.contain,
-                  errorBuilder: (_, __, ___) => SvgPicture.asset(
+                  errorBuilder: (_, _, _) => SvgPicture.asset(
                     'assets/images/bara_naik_pesawat.png',
                     width: 340,
                     fit: BoxFit.contain,
