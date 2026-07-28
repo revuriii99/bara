@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import 'package:bara/features/auth/screens/home/main_screen.dart'; 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -35,7 +35,6 @@ class _LoginScreenState extends State<LoginScreen> {
       body: SafeArea(
         child: Stack(
           children: [
-            // --- FORM CONTENT ---
             SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Column(
@@ -226,6 +225,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     height: 52,
                     child: ElevatedButton(
                       onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const MainScreen(),
+                          ),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: buttonBlue,

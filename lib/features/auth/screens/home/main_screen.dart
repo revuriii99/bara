@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'home/home_screen.dart';
+import 'home_screen.dart'; 
+import '../profile/profile_screen.dart'; 
+import '../discussion/add_discussion_screen.dart'; 
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -9,30 +11,21 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int _currentIndex = 0;
+  int _currentIndex = 0; 
 
   final List<Widget> _screens = [
-    const HomeScreen(),
-    const Center(child: Text('Explore / Search')),
-    const Center(child: Text('Bookmarks')),
-    const Center(child: Text('Profile Screen')),
+    const HomeScreen(), 
+    const Center(child: Text('Explore / Search Screen')), 
+    const Center(child: Text('Bookmark Screen')), 
+    const ProfileScreen(), 
   ];
 
   void _openAddDiscussionModal() {
     showModalBottomSheet(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.white,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (context) => Container(
-        padding: const EdgeInsets.all(24),
-        height: MediaQuery.of(context).size.height * 0.85,
-        child: const Center(
-          child: Text('Form Live Discussion'),
-        ),
-      ),
+      backgroundColor: Colors.transparent,
+      builder: (context) => const AddDiscussionScreen(),
     );
   }
 
@@ -45,8 +38,9 @@ class _MainScreenState extends State<MainScreen> {
       backgroundColor: const Color(0xFFF5F8FF),
       body: IndexedStack(
         index: _currentIndex,
-        children: _screens,
+        children: _screens, 
       ),
+
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Container(
         height: 56,
@@ -73,8 +67,9 @@ class _MainScreenState extends State<MainScreen> {
           child: const Icon(Icons.auto_awesome_rounded, color: Colors.white, size: 26),
         ),
       ),
+   
       bottomNavigationBar: BottomAppBar(
-        shape: const CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(), 
         notchMargin: 8,
         elevation: 10,
         color: Colors.white,
@@ -86,23 +81,23 @@ class _MainScreenState extends State<MainScreen> {
               IconButton(
                 icon: Icon(Icons.home_rounded,
                     color: _currentIndex == 0 ? activeBlue : inactiveGrey, size: 26),
-                onPressed: () => setState(() => _currentIndex = 0),
+                onPressed: () => setState(() => _currentIndex = 0), 
               ),
               IconButton(
                 icon: Icon(Icons.explore_outlined,
                     color: _currentIndex == 1 ? activeBlue : inactiveGrey, size: 26),
-                onPressed: () => setState(() => _currentIndex = 1),
+                onPressed: () => setState(() => _currentIndex = 1), 
               ),
-              const SizedBox(width: 40),
+              const SizedBox(width: 40), 
               IconButton(
                 icon: Icon(Icons.bookmark_border_rounded,
                     color: _currentIndex == 2 ? activeBlue : inactiveGrey, size: 26),
-                onPressed: () => setState(() => _currentIndex = 2),
+                onPressed: () => setState(() => _currentIndex = 2), 
               ),
               IconButton(
                 icon: Icon(Icons.person_rounded,
                     color: _currentIndex == 3 ? activeBlue : inactiveGrey, size: 26),
-                onPressed: () => setState(() => _currentIndex = 3),
+                onPressed: () => setState(() => _currentIndex = 3), 
               ),
             ],
           ),

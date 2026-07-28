@@ -7,9 +7,10 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const Color primaryBlue = Color(0xFF5382C1);
+    const Color textColorDark = Color(0xFF1E293B);
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F8FF),
+      backgroundColor: const Color(0xFFF5F8FF), 
       appBar: AppBar(
         backgroundColor: const Color(0xFFF5F8FF),
         elevation: 0,
@@ -17,7 +18,7 @@ class HomeScreen extends StatelessWidget {
           children: [
             const CircleAvatar(
               radius: 16,
-              backgroundImage: AssetImage('assets/images/CloudArt_margin.png'), // Atau avatar bawaan
+              backgroundImage: AssetImage('assets/images/CloudArt_margin.png'), 
             ),
             const Spacer(),
             Text(
@@ -25,7 +26,7 @@ class HomeScreen extends StatelessWidget {
               style: GoogleFonts.manrope(
                 fontWeight: FontWeight.w800,
                 fontSize: 20,
-                color: const Color(0xFF1E293B),
+                color: textColorDark,
               ),
             ),
             const Spacer(),
@@ -46,7 +47,6 @@ class HomeScreen extends StatelessWidget {
           children: [
             const SizedBox(height: 12),
 
-            // --- INPUT CREATE POST ---
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(
@@ -100,7 +100,6 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
 
-            // --- CATEGORY TABS (For You, Live Chat, etc) ---
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
@@ -114,7 +113,6 @@ class HomeScreen extends StatelessWidget {
             ),
             const SizedBox(height: 16),
 
-            // --- POST CARD EXAMPLE ---
             _buildPostCard(
               name: 'Alex Chen',
               time: '2h ago',
@@ -126,7 +124,7 @@ class HomeScreen extends StatelessWidget {
               likes: '124',
               comments: '32',
             ),
-            const SizedBox(height: 100), // Spasi bawah untuk FAB
+            const SizedBox(height: 100), 
           ],
         ),
       ),
