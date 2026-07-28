@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../login/login_screen.dart';
 
-import '../../../../core/config/app_routes.dart';
 
 class OnboardingItem {
   final String title;
@@ -60,8 +60,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   void _navigateToLogin() {
-    // Navigasi ke rute berikutnya (Login Screen)
-    // Navigator.pushReplacementNamed(context, AppRoutes.login);
+    Navigator.pushReplacement(
+    context,
+    MaterialPageRoute(builder: (context) => const LoginScreen()),
+  );
   }
 
   @override
@@ -75,11 +77,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     const Color buttonBlue = Color(0xFF5382C1);
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF8FAFC),
+      backgroundColor: const Color(0xFFF5F8FF),
       body: SafeArea(
         child: Column(
           children: [
-            // --- HEADER (Logo BARA & Skip) ---
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 12.0),
               child: Row(
@@ -126,7 +127,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ),
             ),
 
-            // --- CAROUSEL SLIDER ---
             Expanded(
               child: PageView.builder(
                 controller: _pageController,
@@ -143,7 +143,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        // PERBAIKAN: Gunakan Image.asset untuk file .png
                         Expanded(
                           child: Center(
                             child: Image.asset(
@@ -154,7 +153,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ),
                         const SizedBox(height: 16),
 
-                        // Page Indicator (Dot Slider)
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: List.generate(_items.length, (dotIndex) {
@@ -173,7 +171,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ),
                         const SizedBox(height: 16),
 
-                        // Title Text
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
@@ -188,7 +185,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         ),
                         const SizedBox(height: 12),
 
-                        // Description Text
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
@@ -209,7 +205,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               ),
             ),
 
-            // --- BUTTON CONTINUE ---
             Padding(
               padding: const EdgeInsets.only(left: 24.0, right: 24.0, bottom: 28.0),
               child: SizedBox(
