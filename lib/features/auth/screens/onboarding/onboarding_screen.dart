@@ -7,12 +7,12 @@ import '../../../../core/config/app_routes.dart';
 class OnboardingItem {
   final String title;
   final String description;
-  final String svgPath;
+  final String imagePath;
 
   OnboardingItem({
     required this.title,
     required this.description,
-    required this.svgPath,
+    required this.imagePath,
   });
 }
 
@@ -32,19 +32,19 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       title: 'Find mentors who\nknow your path',
       description:
           'Match with verified upper-year students, teaching assistants, and alumni who understand your courses and goals.',
-      svgPath: 'assets/images/CloudArt_margin.svg',
+      imagePath: 'assets/images/CloudArt_margin.png',
     ),
     OnboardingItem(
       title: 'Learn with your\ncampus community',
       description:
           'Join study rooms, share notes, and collaborate with classmates before midterms, labs, and projects.',
-      svgPath: 'assets/images/CloudArt_margin_1.svg',
+      imagePath: 'assets/images/CloudArt_margin_1.png',
     ),
     OnboardingItem(
       title: 'Ask AI for your\nclasses',
       description:
           'Get explanations, quizzes, summaries, and study roadmaps aligned to your syllabus and academic level.',
-      svgPath: 'assets/images/CloudArt_margin_2.svg',
+      imagePath: 'assets/images/CloudArt_margin_2.png',
     ),
   ];
 
@@ -60,7 +60,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   void _navigateToLogin() {
-    // Navigasi ke rute berikutnya (misal: Login Screen)
+    // Navigasi ke rute berikutnya (Login Screen)
     // Navigator.pushReplacementNamed(context, AppRoutes.login);
   }
 
@@ -72,7 +72,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    const Color primaryBlue = Color(0xFF2163AE);
     const Color buttonBlue = Color(0xFF5382C1);
 
     return Scaffold(
@@ -144,11 +143,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        // Gambar Ilustrasi SVG
+                        // PERBAIKAN: Gunakan Image.asset untuk file .png
                         Expanded(
                           child: Center(
-                            child: SvgPicture.asset(
-                              item.svgPath,
+                            child: Image.asset(
+                              item.imagePath,
                               fit: BoxFit.contain,
                             ),
                           ),

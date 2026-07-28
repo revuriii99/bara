@@ -63,6 +63,9 @@ flutter:
     - assets/images/CloudArt_margin_1.svg
     - assets/images/CloudArt_margin_2.svg
     - assets/images/CloudArt_margin.svg
+    - assets/images/CloudArt_margin_1.png
+    - assets/images/CloudArt_margin_2.png
+    - assets/images/CloudArt_margin.png
     - assets/images/group_28.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
