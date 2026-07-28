@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen>
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 3000),
+      duration: const Duration(milliseconds: 4000),
     )..forward();
 
     _controller.addStatusListener((status) {
@@ -62,19 +62,19 @@ class _SplashScreenState extends State<SplashScreen>
       body: AnimatedBuilder(
         animation: _controller,
         builder: (context, _) {
-          final pupilMove = Curves.easeInOut.transform(_segment(0.00, 0.30));
-          final poseSwitch = _segment(0.30, 0.38);
-          final eyesClose = _segment(0.38, 0.48);
-          final wipeReveal = Curves.easeInCubic.transform(_segment(0.48, 0.62));
-          final closedFadeOut = _segment(0.50, 0.58);
-          final logoAppear = _segment(0.64, 0.70);
-          final logoScale = Curves.elasticOut.transform(_segment(0.70, 0.92));
-          final textFade = _segment(0.90, 1.00);
+          final pupilMove = Curves.easeInOut.transform(_segment(0.000, 0.225));
+          final poseSwitch = _segment(0.225, 0.285);
+          final eyesClose = _segment(0.285, 0.360);
+          final wipeReveal = Curves.easeInCubic.transform(_segment(0.360, 0.465));
+          final closedFadeOut = _segment(0.375, 0.435);
+          final logoAppear = _segment(0.480, 0.525);
+          final logoScale = Curves.elasticOut.transform(_segment(0.525, 0.690));
+          final textFade = _segment(0.675, 0.750);
 
           final pupilDx = -1.0 + (pupilMove * 2.0);
           final pupilAlignment = Alignment(pupilDx, 0.0);
 
-          final wipeCenter = Offset(screenSize.width / 2, screenSize.height * 0.42);
+          final wipeCenter = Offset(screenSize.width / 2, screenSize.height / 2);
 
           return Stack(
             children: [
@@ -147,18 +147,20 @@ class _SplashScreenState extends State<SplashScreen>
                         opacity: logoAppear,
                         child: Transform.scale(
                           scale: 0.15 + (logoScale * 0.85),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              SvgPicture.asset(_kLogo, width: 120, height: 120),
-                              const SizedBox(height: 12),
-                              BaraText(opacity: textFade),
-                            ],
-                          ),
+                          child: SvgPicture.asset(_kLogo, width: 180, height: 180),
                         ),
                       ),
                     ],
                   ),
+                ),
+              ),
+
+              Positioned(
+                bottom: 60,
+                left: 0,
+                right: 0,
+                child: Center(
+                  child: BaraText(opacity: textFade),
                 ),
               ),
             ],
