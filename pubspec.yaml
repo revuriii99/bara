@@ -60,6 +60,10 @@ flutter:
     - assets/images/logo.svg
     - assets/images/star_3.svg
     - assets/images/star_4.svg
+    - assets/images/CloudArt_margin_1.svg
+    - assets/images/CloudArt_margin_2.svg
+    - assets/images/CloudArt_margin.svg
+    - assets/images/group_28.svg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
